@@ -29,12 +29,14 @@ public class Card {
 		printAnswer();
 	} // End Start()
 
-	void printQuestion() {
+	public String printQuestion() {
 		System.out.println("Q: " + this.getQuestion());
+		return "";
 	} // End printQuestion()
 
-	void printAnswer() {
+	public String printAnswer() {
 		System.out.println("A: " + this.getAnswer());
+		return "";
 	} // End print Answer()
 
 	public String getQuestion() {
