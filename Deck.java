@@ -21,6 +21,10 @@ public class Deck implements HasMenu {
 		cards.add(new Card("What Card is this?", "Card 3"));
 	} // End loadSampleDeck()
 
+	public ArrayList<Card> getCards() {
+		return cards;
+	} // End getList()
+
 	public void start() {
 		boolean keepGoing = true;
 		while(keepGoing) {
@@ -51,12 +55,14 @@ public class Deck implements HasMenu {
 		return input.nextLine();
 	} // End menu()
 
-	public void showAllCards() {
+	public String showAllCards() {
 		for (Card card: cards) {
 			System.out.println();
 			card.printQuestion();
 			card.printAnswer();
 		} // End for loop
+
+		return "";
 	} // End showAllCards()
 
 	public void startFlashCards() {
