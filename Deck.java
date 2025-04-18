@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Deck implements HasMenu {
 
+	String deckName;
 	ArrayList<Card> cards = new ArrayList<Card>();
 	Card card;
 
@@ -12,8 +13,10 @@ public class Deck implements HasMenu {
 	} // End main
 
 	public Deck() {
+		deckName = "Sample Deck";
 		loadSampleDeck();
 	} // End Deck()
+
 
 	public void loadSampleDeck() {
 		cards.add(new Card("What Card is this?", "Card 1"));

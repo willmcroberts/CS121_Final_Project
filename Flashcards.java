@@ -31,10 +31,11 @@ public class Flashcards implements HasMenu {
 			if (response.equals("0")) {
 				keepGoing = false;
 			} else if (response.equals("1")) {
-				//pickDeck();
-			} if (response.equals("2")) {
+				pickDeck();
+			} else if (response.equals("2")) {
 				//addeck();
 			} else {
+				System.out.println();
 				System.out.println("Invalid input.");
 			} // End elif statements
 		} // End while loop
@@ -52,4 +53,24 @@ public class Flashcards implements HasMenu {
 
 		return input.nextLine();
 	} // End menu()
+
+	public void pickDeck() {
+		Scanner input = new Scanner(System.in);
+		int counter = 0;
+		
+		System.out.println();
+
+		for (Deck deck: decks) {
+			System.out.println(counter + ") " + deck.deckName);
+			counter++;
+		} // End for loop
+		System.out.println();
+		System.out.print("Enter deck number: ");
+		int choice = input.nextInt();
+
+		this.deck = new Deck();
+		Deck deckChoice = decks.get(choice);
+		
+		deck.start();
+	} // End pickDeck()
 } // End Flashcards class
