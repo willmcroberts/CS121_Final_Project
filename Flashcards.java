@@ -33,7 +33,7 @@ public class Flashcards implements HasMenu {
 			} else if (response.equals("1")) {
 				pickDeck();
 			} else if (response.equals("2")) {
-				//addeck();
+				addDeck();
 			} else {
 				System.out.println();
 				System.out.println("Invalid input.");
@@ -73,4 +73,33 @@ public class Flashcards implements HasMenu {
 		
 		deck.start();
 	} // End pickDeck()
+
+	public void addDeck() {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println();
+		System.out.print("Name this deck: ");
+		String tempDeckName = input.nextLine();
+
+		System.out.println();
+		System.out.print("How many cards would you like to add to this deck? ");
+		int numCards = input.nextInt();
+		input.nextLine();
+
+		ArrayList<Card> tempCards = new ArrayList<Card>();
+		
+		for (int i = 0; i < numCards; i++) {
+			System.out.println();
+
+			System.out.print("Enter Question " + i + ": ");
+			String cardQuestion = input.nextLine();
+
+			System.out.print("Enter Answer " + i + ": ");
+			String cardAnswer = input.nextLine();
+
+			tempCards.add(new Card(cardQuestion, cardAnswer));
+		} // End for loop
+		
+		decks.add(new Deck(tempDeckName, tempCards));
+	} // End addDeck()
 } // End Flashcards class

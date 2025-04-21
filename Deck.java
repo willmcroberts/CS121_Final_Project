@@ -17,6 +17,10 @@ public class Deck implements HasMenu {
 		loadSampleDeck();
 	} // End Deck()
 
+	public Deck(String deckName, ArrayList<Card> cards) {
+			this.deckName = deckName;
+			this.cards = cards;
+	} // End Deck()
 
 	public void loadSampleDeck() {
 		cards.add(new Card("What Card is this?", "Card 1"));
@@ -75,8 +79,12 @@ public class Deck implements HasMenu {
 			System.out.println();
 			card.start();
 			System.out.println();
-			System.out.print("Press ENTER to see the next question.");
+			System.out.print("Press ENTER to continue.");
 			enter.nextLine();
 		} // End for lopp
+
+		System.out.println();
+		System.out.print("This is the end. Press ENTER to continue.");
+		enter.nextLine();
 	} // End startFlashCards
 } // End Deck class
