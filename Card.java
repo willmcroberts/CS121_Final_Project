@@ -30,12 +30,16 @@ public class Card {
 	} // End Start()
 
 	public String printQuestion() {
+		System.out.println("---------------");
 		System.out.println("Q: " + this.getQuestion());
+		System.out.println("---------------");
 		return "";
 	} // End printQuestion()
 
 	public String printAnswer() {
+		System.out.println("---------------");
 		System.out.println("A: " + this.getAnswer());
+		System.out.println("---------------");
 		return "";
 	} // End print Answer()
 

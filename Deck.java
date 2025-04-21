@@ -51,11 +51,14 @@ public class Deck implements HasMenu {
 
 	public String menu() {
 		Scanner input = new Scanner(System.in);
-
+		
 		System.out.println();
+		System.out.println("Deck menu");
+		System.out.println("---------------");
 		System.out.println("0) Back");
 		System.out.println("1) Start");
 		System.out.println("2) View");
+		System.out.println("---------------");
 		System.out.println();
 		System.out.print("Enter option: ");
 

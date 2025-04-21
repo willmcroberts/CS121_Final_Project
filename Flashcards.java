@@ -34,6 +34,8 @@ public class Flashcards implements HasMenu {
 				pickDeck();
 			} else if (response.equals("2")) {
 				addDeck();
+			} else if (response.equals("3")) {
+				showAllDecks();
 			} else {
 				System.out.println();
 				System.out.println("Invalid input.");
@@ -45,9 +47,13 @@ public class Flashcards implements HasMenu {
 		Scanner input = new Scanner(System.in);
 
 		System.out.println();
+		System.out.println("Main Menu");
+		System.out.println("---------------");
 		System.out.println("0) Exit");
 		System.out.println("1) Pick a deck");
 		System.out.println("2) Add a deck");
+		System.out.println("3) View all decks");
+		System.out.println("---------------");
 		System.out.println("");
 		System.out.print("Enter option: ");
 
@@ -58,19 +64,14 @@ public class Flashcards implements HasMenu {
 		Scanner input = new Scanner(System.in);
 		int counter = 0;
 		
-		System.out.println();
+		showAllDecks();
 
-		for (Deck deck: decks) {
-			System.out.println(counter + ") " + deck.deckName);
-			counter++;
-		} // End for loop
 		System.out.println();
 		System.out.print("Enter deck number: ");
 		int choice = input.nextInt();
+		input.nextLine();
 
-		this.deck = new Deck();
-		Deck deckChoice = decks.get(choice);
-		
+		this.deck = decks.get(choice);
 		deck.start();
 	} // End pickDeck()
 
@@ -102,4 +103,17 @@ public class Flashcards implements HasMenu {
 		
 		decks.add(new Deck(tempDeckName, tempCards));
 	} // End addDeck()
+
+	public void showAllDecks() {
+		int counter = 0;
+		
+		System.out.println();
+		System.out.println("---------------");
+
+		for (Deck deck: decks) {
+			System.out.println(counter + ") " + deck.deckName);
+			counter++;
+		} // End for loop
+		System.out.println("---------------");
+	} // End showAllDecks()
 } // End Flashcards class
