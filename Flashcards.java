@@ -62,6 +62,8 @@ public class Flashcards implements HasMenu, Serializable {
 			} else if (response.equals("2")) {
 				addDeck();
 			} else if (response.equals("3")) {
+				deleteDeck();
+			} else if (response.equals("4")) {
 				showAllDecks();
 			} else {
 				System.out.println();
@@ -79,7 +81,8 @@ public class Flashcards implements HasMenu, Serializable {
 		System.out.println("0) Exit");
 		System.out.println("1) Pick a deck");
 		System.out.println("2) Add a deck");
-		System.out.println("3) View all decks");
+		System.out.println("3) Remove a deck");
+		System.out.println("4) View all decks");
 		System.out.println("---------------");
 		System.out.println("");
 		System.out.print("Enter option: ");
@@ -130,6 +133,31 @@ public class Flashcards implements HasMenu, Serializable {
 		decks.add(new Deck(tempDeckName, tempCards));
 		saveDecks();
 	} // End addDeck()
+
+	public void deleteDeck() {
+		Scanner input = new Scanner(System.in);
+
+		showAllDecks();
+
+		System.out.println();
+		System.out.print("Enter deck number: ");
+		int choice = input.nextInt();
+		input.nextLine();
+
+		System.out.println();
+		System.out.print("Confirm delete (y/n): ");
+		String confirmation = input.nextLine();
+
+		if (confirmation.equals("y")) {
+			System.out.println("Deck deleted.");
+			this.deck = decks.get(choice);
+			decks.remove(this.deck);
+		} else if (confirmation.equals("n")) {
+			System.out.println("Deck not deleted.");
+		} else {
+			System.out.println("Invalid input. Deck not deleted.");
+		} // End elif statement
+	} // End deleteDeck()
 
 	public void showAllDecks() {
 		int counter = 0;
