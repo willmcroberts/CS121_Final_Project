@@ -1,7 +1,8 @@
 // Card.java
+import java.io.*;
 import java.util.*;
 
-public class Card {
+public class Card implements Serializable {
 	String question;
 	String answer;
 

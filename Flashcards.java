@@ -1,7 +1,8 @@
 // Flashcards.java
+import java.io.*;
 import java.util.*;
 
-public class Flashcards implements HasMenu {
+public class Flashcards implements HasMenu, Serializable {
 	ArrayList<Deck> decks = new ArrayList<Deck>();
 	Deck deck;
 	Card card;
@@ -12,7 +13,9 @@ public class Flashcards implements HasMenu {
 	} // End main
 
 	public Flashcards() {
-		loadSampleDecks();
+		//loadSampleDecks();
+		loadDecks();
+		saveDecks();
 	} // End Flashcards()
 
 	public void loadSampleDecks() {
@@ -23,6 +26,30 @@ public class Flashcards implements HasMenu {
 		decks.add(deck1);
 		decks.add(deck2);
 	} // End loadSampleDecks()
+
+	public void saveDecks() {
+		try {
+      		FileOutputStream fo = new FileOutputStream("Decks.dat");
+      		ObjectOutputStream obOut = new ObjectOutputStream(fo);
+      		obOut.writeObject(decks);
+      		obOut.close();
+      		fo.close();
+    	} catch (Exception e)	{
+      		System.out.println(e.getMessage());
+    	} // end try
+	} // End saveDecks()
+
+	public void loadDecks() {
+		try {
+      		FileInputStream fIn = new FileInputStream("Decks.dat");
+      		ObjectInputStream obIn = new ObjectInputStream(fIn);
+      		decks = (ArrayList<Deck>)obIn.readObject();
+      		obIn.close();
+      		fIn.close();
+    	} catch (Exception e) {
+      		System.out.println(e.getMessage());
+   		} // end try
+	} // End loadDecks()
 
 	public void start() {
 		boolean keepGoing = true;
@@ -62,7 +89,6 @@ public class Flashcards implements HasMenu {
 
 	public void pickDeck() {
 		Scanner input = new Scanner(System.in);
-		int counter = 0;
 		
 		showAllDecks();
 

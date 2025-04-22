@@ -1,7 +1,8 @@
 // Deck.java
+import java.io.*;
 import java.util.*;
 
-public class Deck implements HasMenu {
+public class Deck implements HasMenu, Serializable {
 
 	String deckName;
 	ArrayList<Card> cards = new ArrayList<Card>();
