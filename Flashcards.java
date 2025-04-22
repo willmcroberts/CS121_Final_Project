@@ -15,7 +15,7 @@ public class Flashcards implements HasMenu, Serializable {
 	public Flashcards() {
 		//loadSampleDecks();
 		loadDecks();
-		saveDecks();
+		//saveDecks();
 	} // End Flashcards()
 
 	public void loadSampleDecks() {
@@ -128,6 +128,7 @@ public class Flashcards implements HasMenu, Serializable {
 		} // End for loop
 		
 		decks.add(new Deck(tempDeckName, tempCards));
+		saveDecks();
 	} // End addDeck()
 
 	public void showAllDecks() {

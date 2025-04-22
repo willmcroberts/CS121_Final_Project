@@ -67,8 +67,12 @@ public class Deck implements HasMenu, Serializable {
 	} // End menu()
 
 	public String showAllCards() {
+		int counter = 0;
+
 		for (Card card: cards) {
 			System.out.println();
+			System.out.println("Card " + counter);
+			counter++;
 			card.printQuestion();
 			card.printAnswer();
 		} // End for loop
