@@ -157,6 +157,8 @@ public class Flashcards implements HasMenu, Serializable {
 		} else {
 			System.out.println("Invalid input. Deck not deleted.");
 		} // End elif statement
+
+		saveDecks();
 	} // End deleteDeck()
 
 	public void showAllDecks() {
